@@ -145,6 +145,14 @@ int main(int argc, const char **argv)
         { // 減算.
             var[tc[pc]] = var[tc[pc + 2]] - var[tc[pc + 4]];
         }
+        else if (tc[pc + 1] == getTc("=", 1) && tc[pc + 3] == getTc("*", 1) && tc[pc + 5] == semi)
+        { // 乗算.
+            var[tc[pc]] = var[tc[pc + 2]] * var[tc[pc + 4]];
+        }
+        else if (tc[pc + 1] == getTc("=", 1) && tc[pc + 3] == getTc("/", 1) && tc[pc + 5] == semi)
+        { // 除算.
+            var[tc[pc]] = var[tc[pc + 2]] / var[tc[pc + 4]];
+        }
         else if (tc[pc] == getTc("print", 5) && tc[pc + 2] == semi)
         { // print.
             printf("%d\n", var[tc[pc + 1]]);
